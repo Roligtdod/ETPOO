@@ -1,0 +1,7 @@
+g;dsada;sadsad;sadsad;asdad;adsad;adad1222;222
+g;123;Max;23123;mpinoq@duocuc.cl;asd;123;123123213
+g;1234;tESTEO;Test;mpinoq@testt.cl;sssss;123;123123213
+g;uiouoi;hghg;iuhkiu768;111111;56ty78u9i;qwertdy;111
+t;testeo;Transportista;90000932;TRANS@TRANST.COM;A1;16-2-29;999921
+g;Testeo;AX;923;2023;OSTO;SOLAS;92202
+g;TesteSo;AXS;S923;2023S;OSTOS;SSOLAS;92202231
