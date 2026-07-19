@@ -3,6 +3,7 @@ package gui;
 import data.GestorDatos;
 import model.GuiaTuristico;
 import model.OperadorTransporte;
+import model.Proveedores;
 import model.Recurso;
 
 import javax.swing.*;
@@ -127,8 +128,6 @@ public class gui extends JFrame {
                 }
             }catch(NumberFormatException ex){
                 JOptionPane.showMessageDialog(null, "Error");
-            }catch(Exception ex){
-                JOptionPane.showMessageDialog(null, "Error");
             }
             OperadorTransporte transporte = new OperadorTransporte(id.getText(), nombre.getText(), telefono.getText(), mail.getText(), licencia.getText(), fVencimiento.getText(), Integer.parseInt(sueldo.getText()));
             listaRecursos.add(transporte);
@@ -173,8 +172,30 @@ public class gui extends JFrame {
 
         textArea.add(panel, BorderLayout.NORTH);
         textArea.add(areaG , BorderLayout.CENTER);
-        panel.add(new JButton("Registrar"), BorderLayout.SOUTH);
-        panel.add(new JButton("Leer"), BorderLayout.SOUTH);
+
+        JButton botonRegistrar = new JButton("Registrar");
+        botonRegistrar.addActionListener(e -> {
+            try{
+                if (id.getText().isEmpty() || nombre.getText().isEmpty() || telefono.getText().isEmpty() || mail.getText().isEmpty() || tipo.getText().isEmpty() || servicio.getText().isEmpty() || direccion.getText().isEmpty()){
+                }
+            }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(null, "Error");
+            }
+            Proveedores proveedor = new Proveedores(id.getText(), nombre.getText(), telefono.getText(), mail.getText(), tipo.getText(), servicio.getText(), direccion.getText());
+            listaRecursos.add(proveedor);
+            GestorDatos.escribirArchivo("datos.txt", proveedor.toString()); //atributo nombre del archivo y texto a escribir en el txt
+            areaG.append(proveedor.registrar());
+        });
+
+        JButton botonLeer = new JButton("Leer");
+        botonLeer.addActionListener(e -> {
+            areaG.setText("");
+            String texto = GestorDatos.leerArchivoProveedores("datos.txt");
+            areaG.setText(texto);
+        });
+        panel.add(botonRegistrar, BorderLayout.SOUTH);
+        panel.add(botonLeer, BorderLayout.SOUTH);
+
 
         return textArea;
     } //faltan los botones de leer y registrar
